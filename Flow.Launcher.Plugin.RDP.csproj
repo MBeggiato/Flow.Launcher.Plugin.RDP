@@ -37,9 +37,4 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
-
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy /Y &quot;$(TargetDir)\*&quot; &quot;C:\Users\beggiato\AppData\Roaming\FlowLauncher\Plugins\RDP&quot;" />
-  </Target>
-
 </Project>
