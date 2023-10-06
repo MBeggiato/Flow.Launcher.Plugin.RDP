@@ -1,6 +1,6 @@
 version: 1.0.0.{build}
 image: Visual Studio 2022
-
+skip_tags: true
 environment:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
     DOTNET_CLI_TELEMETRY_OPTOUT: 1
@@ -13,3 +13,11 @@ after_build:
 
 artifacts:
     - path: 'Flow.Launcher.Plugin.RDP.zip'
+
+deploy:
+- provider: GitHub
+  tag: v$(appveyor_build_version)
+  release: v$(appveyor_build_version)
+  auth_token:
+    secure: 03ywBifFP2XIij5VJELywyVYnBP8X3UTWxgirJ8UveeV5AJmUHbovJHrwHqEWvyPyNIinX0IaWS2gN894PNbhUdYEAmLyQ1oGx+kk1goAJSyPurQcTfKXmcdApWIurh5INNDseXBgJW2lIVpmrmxRex3/+K94GIgmMDbeXscfcfUZrvL3rbTnQuw7CTnF2AS
+  repository: MBeggiato/Flow.Launcher.Plugin.RDP
