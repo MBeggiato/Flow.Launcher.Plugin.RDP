@@ -53,7 +53,7 @@ namespace Flow.Launcher.Plugin.RDP {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Flow.Launcher.Plugin.RDP;component/settingsusercontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Flow.Launcher.Plugin.RDP;V1.0.0.0;component/settingsusercontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\SettingsUserControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,7 +1,0 @@
-C:\Users\beggiato\source\_Cloud\FlowPlugin\Flow.Launcher.Plugin.CherwellSearch\bin\Release\win-x64\publish\plugin.json
-C:\Users\beggiato\source\_Cloud\FlowPlugin\Flow.Launcher.Plugin.CherwellSearch\bin\Release\win-x64\publish\Flow.Launcher.Plugin.CherwellSearch.dll
-C:\Users\beggiato\source\_Cloud\FlowPlugin\Flow.Launcher.Plugin.CherwellSearch\bin\Release\win-x64\publish\Flow.Launcher.Plugin.CherwellSearch.deps.json
-C:\Users\beggiato\source\_Cloud\FlowPlugin\Flow.Launcher.Plugin.CherwellSearch\bin\Release\win-x64\publish\Flow.Launcher.Plugin.dll
-C:\Users\beggiato\source\_Cloud\FlowPlugin\Flow.Launcher.Plugin.CherwellSearch\bin\Release\win-x64\publish\JetBrains.Annotations.dll
-C:\Users\beggiato\source\_Cloud\FlowPlugin\Flow.Launcher.Plugin.CherwellSearch\bin\Release\win-x64\publish\PropertyChanged.dll
-C:\Users\beggiato\source\_Cloud\FlowPlugin\Flow.Launcher.Plugin.CherwellSearch\bin\Release\win-x64\publish\Flow.Launcher.Plugin.CherwellSearch.xml
