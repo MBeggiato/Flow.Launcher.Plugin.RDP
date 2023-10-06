@@ -13,11 +13,3 @@ after_build:
 
 artifacts:
     - path: 'Flow.Launcher.Plugin.RDP.zip'
-   
-deploy:
-- provider: GitHub
-  tag: v$(appveyor_build_version)
-  release: v$(appveyor_build_version)
-  auth_token:
-    secure: P73qEX1e76HuKlPIqoXg9+LsYEwOYt5mwEtKWJdKBIH9Gfj+y2q2MKwc+ygUkJSf
-  repository: MBeggiato/Flow.Launcher.Plugin.RDP
