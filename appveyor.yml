@@ -9,7 +9,7 @@ build_script:
 - ps: dotnet publish -c Release -r win-x64 --no-self-contained Flow.Launcher.Plugin.RDP.csproj
 
 after_build:
-- ps: Compress-Archive -Path "Flow.Launcher.Plugin.RDP\bin\Release\win-x64\publish\*" -DestinationPath "Flow.Launcher.Plugin.RDP.zip"
+- ps: Compress-Archive -Path .\bin\Release\win-x64\* -DestinationPath "Flow.Launcher.Plugin.RDP.zip"
 
 artifacts:
     - path: 'Flow.Launcher.Plugin.RDP.zip'
