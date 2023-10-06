@@ -1,0 +1,12 @@
+{
+  "ID": "B7CDDEA47E354243BEE0434DDBAE438A",
+  "ActionKeyword": "rdp",
+  "Name": "RDP",
+  "Description": "a RDP plugin for Flow",
+  "Author": "MarcelBeggiato",
+  "Version": "1.0.0",
+  "Language": "csharp",
+  "Website": "https://github.com/MarcelBeggiato/Flow.Launcher.Plugin.RDP",
+  "IcoPath": "screen-mirroring.png",
+  "ExecuteFileName": "Flow.Launcher.Plugin.RDP.dll"
+}

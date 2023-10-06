@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+	  <UseWPF>true</UseWPF>
+    <AssemblyName>Flow.Launcher.Plugin.RDP</AssemblyName>
+    <PackageId>Flow.Launcher.Plugin.CherwellSearch</PackageId>
+    <Authors>MarcelBeggiato</Authors>
+    <PackageProjectUrl>https://github.com/MarcelBeggiato/Flow.Launcher.Plugin.CherwellSearch</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MarcelBeggiato/Flow.Launcher.Plugin.CherwellSearch</RepositoryUrl>
+    <PackageTags>flow-launcher flow-plugin</PackageTags>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="plugin.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flow.Launcher.Plugin" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="screen-mirroring.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /Y &quot;$(TargetDir)\*&quot; &quot;C:\Users\beggiato\AppData\Roaming\FlowLauncher\Plugins\RDP&quot;" />
+  </Target>
+
+</Project>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Flow.Launcher.Plugin.RDP</name>
+    </assembly>
+    <members>
+        <member name="T:Flow.Launcher.Plugin.RDP.RDP">
+            <summary>
+            Flow.Launcher.Plugin.RDP 
+            </summary>
+        </member>
+        <member name="M:Flow.Launcher.Plugin.RDP.RDP.Init(Flow.Launcher.Plugin.PluginInitContext)">
+            <summary>
+            initialize the plugin.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Flow.Launcher.Plugin.RDP.RDP.Query(Flow.Launcher.Plugin.Query)">
+            <summary>
+            return results for the given query, starting with rpd
+            </summary>
+            <param name="query">search query provided by flow-launcher</param>
+            <returns></returns>
+        </member>
+        <member name="M:Flow.Launcher.Plugin.RDP.RDP.CreateSettingPanel">
+            <summary>
+            create the settings pane inside flow-launchers plugins page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Flow.Launcher.Plugin.RDP.RDP.CreateDefaultResult">
+            <summary>
+            create the default result for a new rdp connection with no given host
+            </summary>
+            <returns>default result</returns>
+        </member>
+        <member name="T:Flow.Launcher.Plugin.RDP.Settings">
+            <summary>
+            template for settings. right now, there are no settings.
+            </summary>
+        </member>
+        <member name="T:Flow.Launcher.Plugin.RDP.SettingsUserControl">
+            <summary>
+            SettingsUserControl
+            </summary>
+        </member>
+        <member name="M:Flow.Launcher.Plugin.RDP.SettingsUserControl.#ctor(Flow.Launcher.Plugin.RDP.Settings)">
+            <summary>
+            usercontrol template for settings. right now there are no settings.
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="M:Flow.Launcher.Plugin.RDP.SettingsUserControl.Hyperlink_RequestNavigate(System.Object,System.Windows.Navigation.RequestNavigateEventArgs)">
+            <summary>
+            allows the hyperlink to actually open
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Flow.Launcher.Plugin.RDP.SettingsUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>
