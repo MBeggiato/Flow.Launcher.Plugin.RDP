@@ -24,17 +24,18 @@ jobs:
       run: dotnet publish -c Release -r win-x64 --no-self-contained Flow.Launcher.Plugin.RDP.csproj
     - name: Zip
       run: Compress-Archive -Path .\bin\Release\win-x64\* -DestinationPath "Flow.Launcher.Plugin.RDP.zip"
-    - name: Version Increment
-      uses: reecetech/version-increment@2023.9.3
-      with:
-          scheme: semver
-          increment: patch
+    - name: Extract Version
+      id: extract-version
+      run: |
+        version=$(Get-Content ./plugin.json -Raw | ConvertFrom-Json).Version
+        echo "Version is $version"
+        echo "::set-output name=PLUGIN_VERSION::$version"
     - name: Upload files to a GitHub release
       uses: svenstaro/upload-release-action@2.7.0
       with:
           file: Flow.Launcher.Plugin.RDP.zip
-          asset_name: Flow.Launcher.Plugin.RDP.${{ steps.version.outputs.version }}
-          tag: ${{ steps.version.outputs.version }}
+          asset_name: Flow.Launcher.Plugin.RDP.${{ steps.extract-version.outputs.PLUGIN_VERSION }}
+          tag: ${{ steps.extract-version.outputs.PLUGIN_VERSION }}
           overwrite: true
             
             
