@@ -27,9 +27,9 @@ jobs:
     - name: Extract Version
       id: extract-version
       run: |
-        version=$(Get-Content ./plugin.json -Raw | ConvertFrom-Json).Version
-        echo "Version is $version"
-        echo "::set-output name=PLUGIN_VERSION::$version"
+        $version = (Get-Content .\plugin.json -Raw | ConvertFrom-Json).Version
+        Write-Host "Version is $version"
+        Write-Host "::set-output name=PLUGIN_VERSION::$version"
     - name: Upload files to a GitHub release
       uses: svenstaro/upload-release-action@2.7.0
       with:
