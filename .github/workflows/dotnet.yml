@@ -22,3 +22,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet publish -c Release -r win-x64 --no-self-contained Flow.Launcher.Plugin.RDP.csproj
+    - name: Zip
+      run: Compress-Archive -Path .\bin\Release\win-x64\* -DestinationPath "Flow.Launcher.Plugin.RDP.zip"
+            
