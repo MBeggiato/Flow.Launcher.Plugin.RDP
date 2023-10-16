@@ -34,6 +34,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: "RDP*"
-          tag_name: "v${{steps.version.outputs.prop}}"
+          tag_name: "${{steps.version.outputs.prop}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
