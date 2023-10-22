@@ -4,7 +4,7 @@
   "Name": "RDP",
   "Description": "RDP plugin for Flow",
   "Author": "MBeggiato",
-  "Version": "1.0.14",
+  "Version": "1.0.15",
   "Language": "csharp",
   "Website": "https://github.com/MBeggiato/Flow.Launcher.Plugin.RDP",
   "IcoPath": "screen-mirroring.png",
