@@ -70,6 +70,8 @@ public class RDP : IPlugin, ISettingProvider
     /// <returns></returns>
     public List<Result> Query(Query query)
     {
+        _context.API.LogInfo("RDP", $"Query: {query}");
+
         _searchPhraseProvider.Search = query.Search;
         _rdpConnections.Reload(GetRdpConnectionsFromRegistry());
 
@@ -84,11 +86,18 @@ public class RDP : IPlugin, ISettingProvider
             results.Add(MapToResult(matchedHost));
             connections = connections.Where(c => !c.Connection.Equals(matchedHost.Connection)).ToList();
         }
-       
 
+        if (query.FirstSearch == "" || query.FirstSearch == null)
+        {
+            results.Add(CreateDefaultResult());
+        }
+        else
+        {
+            results.Remove(CreateDefaultResult());
+        }
 
-        results.AddRange(connections.Select(MapToResult));
-        results.Add(CreateDefaultResult());
+            results.AddRange(connections.Select(MapToResult));
+        
         LogResults(results);
 
         return results;
@@ -149,7 +158,7 @@ public class RDP : IPlugin, ISettingProvider
             Title = "RDP",
             SubTitle = "Establish a new RDP connection",
             IcoPath = "screen-mirroring.png",
-            Score = -10,
+            Score = 100,
             Action = c =>
             {
                 StartMstsc(_searchPhraseProvider.Search);
