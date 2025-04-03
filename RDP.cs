@@ -70,15 +70,34 @@ public class RDP : IPlugin, ISettingProvider
     /// <returns></returns>
     public List<Result> Query(Query query)
     {
+        _context.API.LogInfo("RDP", $"Query: {query}");
+
         _searchPhraseProvider.Search = query.Search;
         _rdpConnections.Reload(GetRdpConnectionsFromRegistry());
 
         var connections = _rdpConnections.FindConnections(query.Search);
 
-        var results = new[] { CreateDefaultResult() }
-            .Concat(connections.Select(MapToResult))
-            .ToList();
+        var matchedHost = connections.FirstOrDefault(c => c.Connection.Equals(query.Search, StringComparison.InvariantCultureIgnoreCase));
 
+        var results = new List<Result>();
+
+        if (matchedHost.Connection != null)
+        {
+            results.Add(MapToResult(matchedHost));
+            connections = connections.Where(c => !c.Connection.Equals(matchedHost.Connection)).ToList();
+        }
+
+        if (query.FirstSearch == "" || query.FirstSearch == null)
+        {
+            results.Add(CreateDefaultResult());
+        }
+        else
+        {
+            results.Remove(CreateDefaultResult());
+        }
+
+            results.AddRange(connections.Select(MapToResult));
+        
         LogResults(results);
 
         return results;
